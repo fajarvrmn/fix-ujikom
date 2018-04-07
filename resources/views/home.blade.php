@@ -6,7 +6,7 @@
       <div class="panel panel-default">
                        
 
-                <div class="panel-heading"><h3>JajanMobil.com</div>
+                <div class="panel-heading"><h3>Cars-Zone.com</div>
 
                 <div class="panel-body">
                     Anda berhasil login!

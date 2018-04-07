@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="breadcrumb">
-				<li><a href="{{ url('/home') }}">Administrator</a></li>
+				<li><a href="{{ url('/Catalog') }}">Administrator</a></li>
 				<li class="active">Catalog mobil	</li>
 			</ul>
 	
@@ -24,6 +24,7 @@
 					<table class="table">
 						<thead>
 							<tr>
+								<th>No</th>
 								<th>Nama</th>
 								<th>Merek</th>
 								<th>Tipe</th>
@@ -32,12 +33,19 @@
 							</tr>
 						</thead>
 						<tbody>
+
+						@php
+                        $mobil = App\Mobil::paginate(5);
+                        @endphp
+								
+
 							@foreach($mobil as $data)
 							<tr>
+								<td>{{$data->id}}</td>
 								<td>{{$data->nama}}</td>
 								<td>{{$data->merekks->namamerek}}</td>
 								<td>{{$data->tipe}}</td>
-								<td><img src="{{ asset('/img/'.$data->foto.'') }}" width="100px" height="100px" ></td>
+								<td><img src="{{ asset('/img/'.$data->foto.'') }}" width="100px" height="50px"  ></td>
 								<td><a href="{{route('Catalog.edit', $data->id) }}" class="btn btn-default">Ubah</a></td>
 
 								<td>
@@ -50,8 +58,10 @@
 								</td>
 							</tr>
 							@endforeach
+
 						</tbody>
 					</table>
+					<center>{{ $mobil->links() }}</center>
 				</div>
 			</div>
 		</div>

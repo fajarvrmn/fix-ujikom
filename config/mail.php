@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => 'admin@mobil.com',
+    'username' => 'admin@gmail.com',
 
     'password' => 'rahasia',
 

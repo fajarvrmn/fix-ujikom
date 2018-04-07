@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'JajanMobil.com',
+    'name' => 'Cars-Zone.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,7 @@ return [
          Collective\Html\HtmlServiceProvider::class,
          Laratrust\LaratrustServiceProvider::class,
           Yajra\Datatables\DatatablesServiceProvider::class,
+          UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +232,7 @@ return [
          'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Laratrust' => Laratrust\LaratrustFacade::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
     ],
 

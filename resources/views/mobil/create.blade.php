@@ -73,7 +73,7 @@
            <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label">Model<span class="text-danger">*</span></label>
-                <input type="text" name="tipe" class="form-control" placeholder="Tipe" required="required">
+                <input type="text" name="tipe" class="form-control" placeholder="Model" required="required">
                 <span class="help-block"></span>
               </div>
             </div>

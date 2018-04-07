@@ -26,7 +26,8 @@ class MerekkController extends Controller
      */
     public function create()
     {
-        //
+         $merek = Merekk::all();
+        return view('merekk.create',compact('merek'));
     }
 
     /**
@@ -37,7 +38,11 @@ class MerekkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $merek = new Merekk();
+        $merek->namamerek = $request->namamerek;
+        $merek->save();
+
+        return redirect()->route('Merek.index');
     }
 
     /**

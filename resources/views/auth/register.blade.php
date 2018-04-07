@@ -1,76 +1,71 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+<!DOCTYPE html>
+<html lang="zxx">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nama pengguna</label>
+<head>
+    @include('frontend.head')
+</head>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Alamat email</label>
-
-                            <div class="col-md-6">
-                                <input id="email" placeholder="admin@secondmobil.com" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<body>
+    <!-- banner -->
+    <div class="banner_top innerpage" id="home">
+        <div class="wrapper_top_w3layouts">
+            <div class="header_agileits">
+                <div class="logo inner_page_log">
+                    <h1><a class="navbar-brand" href="index.html"><span>Cars</span> <i>Zone</i></a></h1>
                 </div>
+                <div class="overlay overlay-contentpush">
+                    <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                    <nav>
+                        <ul>
+                           @include('frontend.navbar')
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mobile-nav-button">
+                    <button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                </div>
+                <!-- cart details -->
+        
+            </div>
+        </div>
+        <!-- //cart details -->
+        <!-- search -->
+    
+        <!-- //search -->
+        <div class="clearfix"></div>
+        <!-- /banner_inner -->
+        <div class="services-breadcrumb_w3ls_agileinfo">
+            <div class="inner_breadcrumb_agileits_w3">
+
+                <ul class="short">
+                 
+                </ul>
+            </div>
+        </div>
+        <!-- //banner_inner -->
+    </div>
+
+    <!-- //banner -->
+    <!-- top Products -->
+    <div class="ads-grid_shop">
+        <div class="shop_inner_inf">
+            <div class="error_page">
+                <h4>404</h4>
+                <p>Halaman Tidak ditemukan</p>
+               
+  
+                <a class="b-home" href="/">Back to Home</a>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    <!-- footer -->
+
+    <!-- //footer -->
+    @include('frontend.script')
+
+
+</body>
+
+</html>

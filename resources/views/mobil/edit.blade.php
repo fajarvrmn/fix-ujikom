@@ -44,6 +44,9 @@
 
                    <div class="col-md-6">
               <div class="form-group">
+
+               
+
                 <label class="control-label">Foto<span class="">*</span></label>
                 <img src="{{asset('/img'.$mobil->foto)}}">
                 <input type="file" name="foto" class="form-control" >
@@ -53,7 +56,7 @@
 
            <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Motor<span class="text-danger">*</span></label>
+                <label class="control-label">Merek<span class="text-danger">*</span></label>
                 <select name="merekks_id" class="form-control">
                   @foreach($merk as $data)
                   <option value="{{$data->id}}">
@@ -69,8 +72,8 @@
 
            <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Tipe<span class="text-danger">*</span></label>
-                <input type="text" name="tipe" class="form-control" placeholder="Tipe" required="required" value="{{$mobil->tipe}}">
+                <label class="control-label">Model<span class="text-danger">*</span></label>
+                <input type="text" name="tipe" class="form-control" placeholder="Model" required="required" value="{{$mobil->tipe}}">
                 <span class="help-block"></span>
               </div>
             </div>

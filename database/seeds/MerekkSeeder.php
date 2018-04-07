@@ -12,7 +12,7 @@ class MerekkSeeder extends Seeder
      */
     public function run()
     {
-            $t1 = new Merekk();
+     $t1 = new Merekk();
         $t1->namamerek = "Toyota";
         $t1->save();
 
@@ -32,8 +32,26 @@ class MerekkSeeder extends Seeder
         $t5->namamerek = "Mitsubishi";
         $t5->save();
 
-         $t5 = new Merekk();
-        $t5->namamerek = "Merek lainnya";
-        $t5->save();
+         $t6 = new Merekk();
+        $t6->namamerek = "Nissan";
+        $t6->save();
+
+         $t7 = new Merekk();
+        $t7->namamerek = "Mazda";
+        $t7->save();
+
+         $t8 = new Merekk();
+        $t8->namamerek = "Mercedes-Benz";
+        $t8->save();
+
+         $t9 = new Merekk();
+        $t9->namamerek = "BMW";
+        $t9->save();
+
+         $t10 = new Merekk();
+        $t10->namamerek = "Hyundai";
+        $t10->save();
+
+  
     }
 }

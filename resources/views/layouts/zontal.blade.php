@@ -101,22 +101,33 @@
             <div class="row">
                 <div class="col-md-12">
                 <ul id="menu-top" class="nav navbar-nav navbar-left">
-
-</ul>
+                    
+                    
+                    @role('superadmin')
+                    <li><a href="{{ route('Account.index') }}"></i>&nbsp;&nbsp;Management Account</a></li>
+                    <li><a href="{{ route('Merek.index') }}"></i>&nbsp;&nbsp;Merek</a></li>
+                     @endrole
+                </ul>
                     <div class="navbar-collapse collapse ">
 
 
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             
-                            <li><a class="" href="{{ ('/home') }}" class="fa fa-bullseye">Dashboard</a></li>
-
-                       <li><a href="{{ route('Catalog.index') }}"></i>&nbsp;&nbsp;Catalog Mobil</a></li>
-                       <li><a href="{{ route('Detail.index') }}"></i>&nbsp;&nbsp;Detail Catalog</a></li>
-                    <!--     <li><a href="{{ route('Merek.index') }}"></i>&nbsp;&nbsp;sadasdsa</a></li> -->
+                        <li><a class="" href="{{ ('/home') }}" class="fa fa-bullseye">Dashboard</a></li>
+                        <li><a href="{{ route('Catalog.index') }}"></i>&nbsp;&nbsp;Catalog Mobil</a></li>
+                        <li><a href="{{ route('Detail.index') }}"></i>&nbsp;&nbsp;Detail Catalog</a></li>
+                        <li><a href="{{ route('Berita.index') }}"></i>&nbsp;&nbsp;Berita</a></li>                              
+                                @role('superadmin') 
+                                <li><a href="{{ route('Kontak.index') }}"></i>&nbsp;&nbsp;Kritik&saran</a></li>
+                                @endrole
+                         
 
                         </ul>
                     </div>
                 </div>
+        
+
+                      
 
             </div>
         </div>

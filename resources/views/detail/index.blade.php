@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="breadcrumb">
-				<li><a href="{{ url('/home') }}">Administrator</a></li>
+				<li><a href="{{ url('/Detail') }}">Administrator</a></li>
 				<li class="active">Detail Catalog	</li>
 			</ul>
 		
@@ -21,6 +21,7 @@
 					<table class="table">
 						<thead>
 							<tr>
+								<th>No</th>
 								<th>Kondisi</th>
 								<th>Transmisi</th>
 								<th>Bahan Bakar</th>
@@ -32,8 +33,14 @@
 							</tr>
 						</thead>
 						<tbody>
+
+						@php
+                        $detail = App\Detaill::paginate(3);
+                        @endphp
+								
 							@foreach($detail as $data)
 							<tr>
+								<td>{{$data->id}}</td>
 								<td>{{$data->keadaan}}</td>
 								<td>{{$data->transmisi}}</td>
 								<td>{{$data->bahanbkr}}</td>
@@ -56,6 +63,7 @@
 							@endforeach
 						</tbody>
 					</table>
+					<center>{{ $detail->links() }}</center>
 				</div>
 			</div>
 		</div>

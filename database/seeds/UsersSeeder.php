@@ -15,31 +15,31 @@ class UsersSeeder extends Seeder
     {
         //
 
+        $superadminRole = new Role();
+        $superadminRole->name="superadmin";
+        $superadminRole->display_name="Super Admin";
+        $superadminRole->save();
+
         $adminRole = new Role();
         $adminRole->name="admin";
-        $adminRole->display_name="Admin";
+        $adminRole->display_name="admin";
         $adminRole->save();
 
-        // $memberRole = new Role();
-        // $memberRole->name="member";
-        // $memberRole->display_name="Member";
-    // $memberRole->save();
-
-        $admin = new User();
-        $admin->name="Admin Besar";
-        $admin->email="admin@gmail.com";
-        $admin->password=bcrypt('rahasia');
+        $superadmin = new User();
+        $superadmin->name="Admin Besar";
+        $superadmin->email="admin@gmail.com";
+        $superadmin->password=bcrypt('rahasia');
         // $admin->is_verified=1;
-        $admin->save();
-        $admin->attachRole($adminRole);
+        $superadmin->save();
+        $superadmin->attachRole($superadminRole);
 
-    //     $member = new User();
-    //     $member->name="Sample Member";
-    //     $member->email="member@gmail.com";
-    //     $member->password=bcrypt('rahasia');
-    //     $member->is_verified=1;
-    //     $member->save();
-    //     $member->attachRole($memberRole);
+        $adminRole = new User();
+        $adminRole->name="admin ajah";
+        $adminRole->email="adminajah@gmail.com";
+        $adminRole->password=bcrypt('rahasia');
+        // $adminRole->is_verified=1;
+        $adminRole->save();
+        $adminRole->attachRole($adminRole);
         
 }
     }

@@ -20,26 +20,11 @@ class AkunController extends Controller
     {
         //
     // return view('akuntabel.index');
-        if($request->ajax()){
-            $akuntabel = User::all();
-            return Datatables::of($akuntabel)
-              ->addColumn('action',function($akuntabel){
-                return view('datatable._action', [
-                    'model'     => $akuntabel,
-                    'form_url'  => route('User.destroy',$akuntabel->id),
-                    'edit_url'  => route('User.edit',$akuntabel->id),
-                    'confirm_message' => 'Yakin Ingin Menghapus ' . $akuntabel->name . ' ?' ]);
-            })->make(true);
-        }
+         $akuntabel = User::all();
+       
 
-
-        $html = $htmlBuilder
-        ->addColumn(['data'=>'id','name'=>'id', 'title'=>'No'])
-        ->addColumn(['data'=>'name','name'=>'name', 'title'=>'Nama pengguna'])
-        ->addColumn(['data'=>'email','name'=>'email', 'title'=>'Alamat email'])
-
-        ->addColumn(['data'=>'action','name'=>'action','title'=>'Action','orderable'=>false,'searchable'=>false]);
-        return view('akuntabel.index')->with(compact('html'));
+        return view('akuntabel.index',compact('akuntabel'));
+    
 
     }
 
@@ -50,8 +35,8 @@ class AkunController extends Controller
      */
     public function create()
     {
-        //
-        return view('akuntabel.create');
+       $akuntabel = User::all();
+        return view('akuntabel.create',compact('akuntabel'));
     }
 
     /**
@@ -60,24 +45,31 @@ class AkunController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function store(Request $request)
     {
-        //
-             $this->validate($request, [
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required|string|min:6']);
 
-            $user = new User;
-            $user->name = $request['name'];
-            $user->email = $request['email'];
-            $user->password = bcrypt($request['password']);
+
+
+            $akuntabel = new User;
+            $akuntabel->name = $request['name'];
+            $akuntabel->email = $request['email'];
+            $akuntabel->password = $request['password'];
+            
 
             $adminRole = Role::where('name','admin')->first();
-            $user->save();
-            $user->attachRole($adminRole);
+            $akuntabel->save();
+            $akuntabel->attachRole($adminRole);
 
-        return redirect('/admin/User');
+
+     
+
+        return redirect()->route('Account.index');
+
+        
+           
         }
 
     /**
@@ -101,8 +93,7 @@ class AkunController extends Controller
     {
         //
 
-        $akuntabel = User::find($id);
-        return view('akuntabel.edit')->with (compact('akuntabel'));
+        
     }
 
     /**
@@ -116,18 +107,7 @@ class AkunController extends Controller
     {
         //
 
-         $this->validate($request, [
-           'name'=>'required',
-            'email'=>'required',
-            'password'=>'required']);
-
-            User::find($id)->update([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password'])
-            ]);
-
-            return redirect()->route('User.index');
+         
 
 
     }
@@ -141,7 +121,14 @@ class AkunController extends Controller
     public function destroy($id)
     {
         //
-  $akuntabel = User::destroy($id);
-    return redirect()->route('User.index');
+
+
+    User::destroy($id);
+        Session::flash("flash_notification", [
+        "level"=>"success",
+        "message"=>"Akun berhasil dihapus"
+        ]);
+        return redirect()->route('Account.index');
     }
+    
 }

@@ -20,7 +20,7 @@ class CreateDetaillsTable extends Migration
             $table->string('bahanbkr');
             $table->string('thnklr');
             $table->string('harga');
-            $table->string('desk');
+            $table->text('desk');
 
             $table->integer('mobils_id')->unsigned();
             $table->foreign('mobils_id')->references('id')->on('mobils')->onUpdate('cascade')->onDelete('cascade');
